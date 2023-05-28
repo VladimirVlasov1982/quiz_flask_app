@@ -29,7 +29,9 @@ func = Function()
 @app.route("/api/ask", methods=['POST'])
 def ask_question():
     data = request.get_json()
-    questions_num = data.get('questions_num', 1)
+    questions_num = data.get('questions_num')
+    if isinstance(questions_num, str | None):
+        return {'error': 'Bad request'}
     question_lst = []
 
     while questions_num > 0:
