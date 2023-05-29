@@ -29,9 +29,11 @@ func = Function()
 @app.route("/api/ask", methods=['POST'])
 def ask_question():
     data = request.get_json()
+    if "questions_num" not in data.keys():
+        return {'error': 'Bad request'}, 400
     questions_num = data.get('questions_num')
-    if isinstance(questions_num, str | None):
-        return {'error': 'Bad request'}
+    if type(questions_num) != int or int(questions_num) <= 0:
+        return {'error': 'The question number should be a positive integer!'}, 400
     question_lst = []
 
     while questions_num > 0:
@@ -46,7 +48,7 @@ def ask_question():
         questions_num -= 1
 
     last_question = question_lst[-1] if question_lst else []
-    return jsonify(last_question.to_dict() if last_question else {})
+    return jsonify(last_question.to_dict() if last_question else {}), 200
 
 
 if __name__ == '__main__':

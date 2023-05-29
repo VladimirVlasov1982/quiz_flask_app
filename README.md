@@ -34,11 +34,11 @@ docker-compose up -d
 Для того, чтобы получить вопрос отправьте запрос с содержимым {"questions_num": integer} на адрес 
 http://localhost:5000/api/ask. 
 
-Запрос можно отправить в терминале:
+Пример запроса в терминале:
 ```
-curl -X POST -H "Content-Type: application/json" -d '{"questions_num": integer}' http://127.0.0.1:5000/api/ask
+curl -X POST -H "Content-Type: application/json" -d "{\"questions_num\": 1}" http://127.0.0.1:5000/api/ask
 ```
-Можно и в Postman:
+Пример запроса в Postman:
 ```
 - Запустите Postman
 - Выберите запрос POST
@@ -47,5 +47,3 @@ curl -X POST -H "Content-Type: application/json" -d '{"questions_num": integer}'
 - В теле запроса укажите {"questions_num": integer}, где integer - количество запросов.
 - Отправьте запрос, нажав на кнопку Send.
 ```
-
-
