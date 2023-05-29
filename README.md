@@ -1,6 +1,6 @@
 # Получение вопросов для викторины
 ***
-* стэк (python3.10.4, Flask, SQLAlchemy, Postgres)
+* стэк (python 3.10.4, Flask, SQLAlchemy, Postgres)
 ***
 - В сервисе реализован POST REST метод, который принимает на
 вход запросы с содержимым вида {"questions_num": integer}.
